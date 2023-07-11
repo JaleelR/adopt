@@ -1,0 +1,32 @@
+{% extends "base.html"%}
+{%block content%}
+<h1> EDIT ANIMAL </h1>
+<form id="add-pet-form" method="POST" >
+    {{ form2.hidden_tag() }} <!--add type=hidden form fields -->
+  
+    {% for field in form2
+           if field.widget.input_type != 'hidden' %}
+  
+      <p>
+        {{ field.label }}
+        {{ field }}
+        
+        {%if  field.name == "not_available"%}
+       <p> <b> *Please note by checking this box you are informing us that this animal is not available for adoption.
+        <br>
+       If this animal is availible for adoption please ingore the box*</b></p>
+        {% endif %}
+        {% for error in field.errors %}
+          {{ error }}
+        {% endfor %}
+      </p>
+  
+    {% endfor %}
+      <button type="submit" method = "post">Submit</button>
+  </form>
+
+<a href="/details/{{pet.id}}">
+cancel
+</a>
+
+  {%endblock%}

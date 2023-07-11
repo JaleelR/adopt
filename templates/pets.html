@@ -1,0 +1,22 @@
+{%block content%}
+
+<ul>
+    {% for pet in pets%}
+
+    <li>
+         <img src="{{ pet.photo_url }}" alt=""> 
+        {{ pet.name }}
+        {%if pet.available == True %} 
+       <b >  is available </b> <b style="color: red;">&hearts;</b> 
+        {%endif%}  
+        
+     <form action="/details/{{ pet.id }}">  
+  <button>Details</button>
+   </form>
+    </li>  
+    {%endfor%}
+</ul>
+<form action="/addpet">
+<button> add pet </button>
+</form>
+{%endblock%}

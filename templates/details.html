@@ -1,0 +1,18 @@
+
+
+Name: {{pets.name}}
+<br>
+<br>
+Species: {{pets.species}}
+<br>
+<br>
+Age: {{pets.age}}
+<br>
+<br>
+<img src="{{pets.photo_url}}" alt="">
+<form action="/edit/{{ pets.id }}">
+    <button>Edit</button>
+</form>
+<form action="/delete/{{ pets.id}} " method = "post">
+    <button>Delete</button>
+</form>
